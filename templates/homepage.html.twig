@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    wuuuuuuu its working !!!!! wooop wooop
+
+    <h1>{{ wuhu | escape }}</h1>
+
+    <p>{{ my }}</p>
+
+    <p>Length is {{ testloop|length }}</p>
+    {% for answer in testloop %}
+        {{ answer }}
+        <br>
+        {{ loop.index }}
+    {% endfor %}
+{% endblock %}

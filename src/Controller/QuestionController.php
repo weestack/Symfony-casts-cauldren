@@ -4,10 +4,11 @@
 namespace App\Controller;
 
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class QuestionController
+class QuestionController extends AbstractController
 {
     /**
      * @Route("/")
@@ -21,9 +22,21 @@ class QuestionController
      */
     public function show($slug) {
 
-        return new Response(sprintf(
-            "Hello %s", ucwords(str_replace("-", " ", $slug))
-        ), 200);
+        $loopsis = [
+            "hello",
+            "world",
+            "how",
+            "are",
+            "you",
+            "doing",
+            "hehe"
+        ];
+
+        return $this->render("homepage.html.twig", [
+            "my" => "context",
+            "wuhu" => "nice",
+            "testloop" => $loopsis,
+        ]);
     }
 
 
