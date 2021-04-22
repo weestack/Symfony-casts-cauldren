@@ -5,20 +5,19 @@ namespace App\Controller;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class QuestionController extends AbstractController
 {
     /**
-     * @Route("/")
+     * @Route("/", name="app_homepage")
      */
     public function homepage() {
-        return new Response("<h1>hello world</h1>", 400);
+        return $this->render("homepage.html.twig");
     }
 
     /**
-     * @Route("/questions/{slug}/")
+     * @Route("/questions/{slug}/", name="app_questions")
      */
     public function show($slug) {
 
@@ -31,8 +30,8 @@ class QuestionController extends AbstractController
             "doing",
             "hehe"
         ];
-
-        return $this->render("homepage.html.twig", [
+            dump( $slug,$this);
+        return $this->render("questions.twig", [
             "my" => "context",
             "wuhu" => "nice",
             "testloop" => $loopsis,
